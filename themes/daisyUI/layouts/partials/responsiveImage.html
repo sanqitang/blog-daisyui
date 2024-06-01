@@ -1,0 +1,17 @@
+{{ $img580 := .img.Fit "580x4096 webp photo" }}
+{{ $img400 := .img.Fit "400x4096 webp photo" }}
+{{ $img200 := .img.Fit "200x4096 webp photo" }}
+
+<img
+  srcset="
+    {{ $img580.RelPermalink }} 580w,
+    {{ $img400.RelPermalink }} 400w,
+    {{ $img200.RelPermalink }} 200w,
+    "
+  sizes="(max-width: 640px) 100vw, 580px"
+  src="{{ $img200.RelPermalink }}"
+  width="{{ $img200.Width }}"
+  height="{{ $img200.Height }}"
+  alt="{{ .alt }}"
+  class="{{ .class }}"
+/>
